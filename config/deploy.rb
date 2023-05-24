@@ -4,6 +4,12 @@ lock "~> 3.17.3"
 set :application, "myapp"
 set :repo_url, "git@github.com:Caro-Alarcon/hogwarts.git"
 
+set :user, 'deploy'
+set :ssh_options, {
+    forward_agent: true,
+    auth_methods: ['publickey'],
+    keys: ['~/.ssh/aws_caro.cer']
+}
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
